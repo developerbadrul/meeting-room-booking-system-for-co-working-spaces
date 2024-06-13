@@ -1,6 +1,6 @@
 import cors from "cors";
 import express, { Application, Request, Response } from "express"
-import path from "path";
+import router from "./app/routes";
 
 
 const app: Application = express()
@@ -10,8 +10,13 @@ app.use(express.json());
 app.use(cors());
 
 // application route 
+
+app.use("/api", router)
+
 app.get("/", (req: Request, res: Response) => {
     res.json("Hello World")
 })
+
+
 
 export default app;
