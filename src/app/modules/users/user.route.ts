@@ -5,6 +5,6 @@ import { UserController } from "./user.controller";
 
 const router = Router();
 
-router.post("/signup", validateRequest(ValidateUser.userValidationSchema), UserController.createUser)
+// router.post("/signup", validateRequest(ValidateUser.userValidationSchema), UserController.createUser)
 
 export const UserRoute = router;

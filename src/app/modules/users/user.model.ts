@@ -1,10 +1,10 @@
 import mongoose, { Schema } from "mongoose";
-import { TUser } from "./user.interface";
+import { TUser, UserVerify } from "./user.interface";
 import { USER_ROLE } from "./user.const";
 import bcrypt from "bcrypt"
 import config from "../../config";
 
-const userSchema = new Schema<TUser>({
+const userSchema = new Schema<TUser, UserVerify>({
     name: {
         type: String,
         requied: true,
@@ -20,7 +20,7 @@ const userSchema = new Schema<TUser>({
     password: {
         type: String,
         required: true,
-        select: 0
+        select: false
     },
     phone: {
         type: String,
@@ -56,7 +56,17 @@ userSchema.post("save", function (doc, next) {
         next()
 })
 
-const UserModel = mongoose.models.User ?? mongoose.model<TUser>('User', userSchema);
+
+userSchema.statics.isUserExistsByEmail = async function (email: string) {
+    return await UserModel.findOne({ email }).select('+password');
+};
+
+userSchema.statics.isPasswordMatched = async function (plainTextPassword, hashedPassword) {
+    return await bcrypt.compare(plainTextPassword, hashedPassword);
+}
+
+
+const UserModel = mongoose.model<TUser, UserVerify>('User', userSchema);
 
 
 export default UserModel;
