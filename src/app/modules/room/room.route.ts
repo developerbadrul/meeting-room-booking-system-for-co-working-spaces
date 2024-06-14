@@ -8,6 +8,6 @@ import { RoomValidation } from "./room.validation";
 const router = Router();
 
 router.post("/", auth(USER_ROLE.admin), validateRequest(RoomValidation.createRoomValidationSchema), RoomController.createRoom)
-
+router.get("/:id", RoomController.getRoom);
 
 export const RoomRoute = router;

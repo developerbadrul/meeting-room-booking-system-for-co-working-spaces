@@ -10,6 +10,14 @@ const createRoomValidationSchema = z.object({
     isDeleted: z.boolean().optional()
 });
 
+const getRoomValidationSchema = z.object({
+    params: z.object({
+        id: z.string({ required_error: "ID Required" }),
+    }),
+});
+
+
 export const RoomValidation = {
-    createRoomValidationSchema
+    createRoomValidationSchema,
+    getRoomValidationSchema
 }
