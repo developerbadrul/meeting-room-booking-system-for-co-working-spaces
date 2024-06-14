@@ -1,11 +1,12 @@
 import { Router } from "express";
 import { UserRoute } from "../modules/users/user.route";
 import { AuthRouter } from "../modules/auth/auth.route";
+import { RoomRoute } from "../modules/room/room.route";
 
 
 // User Sign Up Route: /api/auth/signup (POST) done
-// User Login Route: /api/auth/login (POST)
-// Create Room Route: /api/rooms (POST)
+// User Login Route: /api/auth/login (POST) done
+// Create Room Route: /api/rooms (POST) done
 // Get a Room Route: /api/rooms/:id (GET)
 // Get All Rooms Route: /api/rooms (GET)
 // Update Room Route: /api/rooms/:id (PUT)
@@ -27,7 +28,11 @@ const moduleRoutes = [
     {
         path: "/auth",
         route: AuthRouter
-    }
+    },
+    {
+        path: "/rooms",
+        route: RoomRoute
+    },
 ]
 
 moduleRoutes.forEach(route => router.use(route.path, route.route));
