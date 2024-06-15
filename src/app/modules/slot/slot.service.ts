@@ -33,6 +33,15 @@ const createSlot = async (slotData: ISlot) => {
 }
 
 
+const getAvailableSlots = async (date?: string, roomId?: string) => {
+    const query: any = { isBooked: false };
+    if (date) query.date = date;
+    if (roomId) query.room = roomId;
+
+    return SlotModel.find(query).populate("room")
+}
+
 export const SlotService = {
-    createSlot
+    createSlot,
+    getAvailableSlots
 }

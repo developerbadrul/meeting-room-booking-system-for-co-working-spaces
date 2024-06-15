@@ -12,7 +12,8 @@ import { SlotRoute } from "../modules/slot/slot.route";
 // Update Room Route: /api/rooms/:id (PUT) done
 // Delete a Room Route: /api/rooms/:id (PUT) done
 // Create Slot Route: /api/slots(POST) done
-// Get available slots Route: /api/slots/availability(GET)
+// Get available slots Route: /api/slots/availability(GET) done
+
 // Create a Booking Route: /api/bookings (POST)
 // Get All Bookings Route: /api/bookings (GET)
 // Get User's Bookings Route: /api/my-bookings(GET)
