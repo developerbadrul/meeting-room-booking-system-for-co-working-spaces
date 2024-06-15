@@ -17,8 +17,20 @@ const getAllRoomsFromDb = async () => {
     return rooms
 }
 
+const updateRoomInDb = async (id: string, roomData: Partial<IRoom>) => {
+    const room = await RoomModel.findByIdAndUpdate(id, roomData, { new: true })
+    return room
+}
+
+const deleteRoom = async (id: string) => {
+    const room = await RoomModel.findByIdAndUpdate(id, { isDeleted: true }, { new: true })
+    return room;
+}
+
 export const RoomService = {
     createRoomInDb,
     getRoomById,
-    getAllRoomsFromDb
+    getAllRoomsFromDb,
+    updateRoomInDb,
+    deleteRoom
 }

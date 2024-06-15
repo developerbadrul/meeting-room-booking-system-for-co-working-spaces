@@ -7,7 +7,7 @@ import { RoomRoute } from "../modules/room/room.route";
 // User Login Route: /api/auth/login (POST) done
 // Create Room Route: /api/rooms (POST) done
 // Get a Room Route: /api/rooms/:id (GET) done
-// Get All Rooms Route: /api/rooms (GET)
+// Get All Rooms Route: /api/rooms (GET) done
 // Update Room Route: /api/rooms/:id (PUT)
 // Delete a Room Route: /api/rooms/:id (PUT)
 // Create Slot Route: /api/slots(POST)

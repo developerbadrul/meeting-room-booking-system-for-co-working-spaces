@@ -7,8 +7,32 @@ import { RoomValidation } from "./room.validation";
 
 const router = Router();
 
-router.post("/", auth(USER_ROLE.admin), validateRequest(RoomValidation.createRoomValidationSchema), RoomController.createRoom)
-router.get("/:id", RoomController.getRoom);
-router.get("/", RoomController.getAllRooms)
+router.post(
+    "/",
+    auth(USER_ROLE.admin),
+    validateRequest(RoomValidation.createRoomValidationSchema, "body"),
+    RoomController.createRoom
+);
+
+router.get(
+    "/:id",
+    validateRequest(RoomValidation.getRoomValidationSchema, "params"),
+    RoomController.getRoom
+);
+
+router.get(
+    "/",
+    RoomController.getAllRooms
+);
+
+router.put(
+    "/:id",
+    auth(USER_ROLE.admin),
+    // validateRequest(RoomValidation.updateRoomValidationSchema, "body"),
+    RoomController.updateRoom
+);
+
+router.delete("/:id", auth(USER_ROLE.admin), RoomController.deleteRoom)
+
 
 export const RoomRoute = router;

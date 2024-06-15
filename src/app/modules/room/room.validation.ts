@@ -17,7 +17,21 @@ const getRoomValidationSchema = z.object({
 });
 
 
+const updateRoomValidationSchema = z.object({
+    body: z.object({
+        name: z.string().min(1, "Name is required").optional(),
+        roomNo: z.number().int("Room number must be an integer").optional(),
+        floorNo: z.number().int("Floor number must be an integer").optional(),
+        capacity: z.number().int("Capacity must be an integer").optional(),
+        pricePerSlot: z.number({ message: "Price per slot must be a number" }).optional(),
+        amenities: z.array(z.string().min(1, "Amenity is required")).optional(),
+    }),
+});
+
+
+
 export const RoomValidation = {
     createRoomValidationSchema,
-    getRoomValidationSchema
+    getRoomValidationSchema,
+    updateRoomValidationSchema
 }
