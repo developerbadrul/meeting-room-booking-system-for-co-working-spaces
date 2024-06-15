@@ -36,7 +36,20 @@ const getRoom = catchAsync(async (req, res) => {
     });
 });
 
+
+const getAllRooms = catchAsync(async (req, res) => {
+    const rooms = await RoomService.getAllRoomsFromDb()
+
+    sendResponse(res, {
+        statusCode: httpStatus.OK,
+        success: true,
+        message: "Rooms retrieved successfully",
+        data: rooms,
+    });
+})
+
 export const RoomController = {
     createRoom,
-    getRoom
+    getRoom,
+    getAllRooms
 };

@@ -12,7 +12,13 @@ const getRoomById = async (id: string) => {
 }
 
 
+const getAllRoomsFromDb = async () => {
+    const rooms = await RoomModel.find({ isDeleted: false });
+    return rooms
+}
+
 export const RoomService = {
     createRoomInDb,
-    getRoomById
+    getRoomById,
+    getAllRoomsFromDb
 }

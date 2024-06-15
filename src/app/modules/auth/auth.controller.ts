@@ -9,10 +9,10 @@ const loginUser = catchAsync(async (req: Request, res: Response) => {
     const result = await AuthServices.loginUserByDb(req.body);
     const { refreshToken, accessToken } = result;
 
-    res.cookie("accessToken", `Bearer ${accessToken}`, {
-        secure: config.NODE_ENV === 'production',
-        httpOnly: true,
-    });
+    // res.cookie("accessToken", `Bearer ${accessToken}`, {
+    //     secure: config.NODE_ENV === 'production',
+    //     httpOnly: true,
+    // });
 
     res.cookie("refreshToken", `Bearer ${refreshToken}`, {
         secure: config.NODE_ENV === 'production',

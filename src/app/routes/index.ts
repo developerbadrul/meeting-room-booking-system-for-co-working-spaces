@@ -1,5 +1,4 @@
 import { Router } from "express";
-import { UserRoute } from "../modules/users/user.route";
 import { AuthRouter } from "../modules/auth/auth.route";
 import { RoomRoute } from "../modules/room/room.route";
 
