@@ -16,7 +16,7 @@ router.post(
 
 router.get(
     "/:id",
-    validateRequest(RoomValidation.getRoomValidationSchema, "params"),
+    // validateRequest(RoomValidation.getRoomValidationSchema, "params"),
     RoomController.getRoom
 );
 

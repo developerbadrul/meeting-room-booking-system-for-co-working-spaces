@@ -27,7 +27,7 @@ const auth = (...requiredRoles: TUserRole[]) => {
             throw new AppError(httpStatus.UNAUTHORIZED, "unauthorizae");
         }
 
-        const { email, role } = decoded;
+        const { _id, email, role } = decoded;
 
         const user = await UserModel.isUserExistsByEmail(email);
 
@@ -39,7 +39,7 @@ const auth = (...requiredRoles: TUserRole[]) => {
             throw new AppError(httpStatus.FORBIDDEN, 'You do not have permission to access this route');
         }
 
-        req.user = decoded;
+        req.user = { _id, email, role };
 
         next();
     });

@@ -6,6 +6,9 @@ import config from "../../config";
 const loginUserByDb = async (payload: TLoginUser) => {
     const user = await UserModel.isUserExistsByEmail(payload.email);
 
+    // console.log("user when login", user);
+
+
     if (!user) {
         throw new Error("User not found");
     }
@@ -17,6 +20,7 @@ const loginUserByDb = async (payload: TLoginUser) => {
     }
 
     const jwtPayload = {
+        _id: user._id,
         email: user.email,
         role: user.role,
     };
@@ -34,6 +38,7 @@ const loginUserByDb = async (payload: TLoginUser) => {
     );
 
     const userData = {
+        _id: user._id,
         name: user.name,
         email: user.email,
         phone: user.phone,
@@ -44,7 +49,7 @@ const loginUserByDb = async (payload: TLoginUser) => {
     return {
         accessToken,
         refreshToken,
-        user: userData, 
+        user: userData,
     };
 };
 
