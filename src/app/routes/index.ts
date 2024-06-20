@@ -5,26 +5,6 @@ import { SlotRoute } from "../modules/slot/slot.route";
 import { BookingRoute } from "../modules/booking/booking.route";
 import { MyBooking } from "../modules/my-booking/my-booking.route";
 
-
-// User Sign Up Route: /api/auth/signup (POST) done
-// User Login Route: /api/auth/login (POST) done
-// Create Room Route: /api/rooms (POST) done
-// Get a Room Route: /api/rooms/:id (GET) done
-// Get All Rooms Route: /api/rooms (GET) done
-// Update Room Route: /api/rooms/:id (PUT) done
-// Delete a Room Route: /api/rooms/:id (PUT) done
-// Create Slot Route: /api/slots(POST) done
-// Get available slots Route: /api/slots/availability(GET) done
-
-// Create a Booking Route: /api/bookings (POST)
-// Get All Bookings Route: /api/bookings (GET)
-// Get User's Bookings Route: /api/my-bookings(GET)
-// Update Booking Route: /api/bookings/:id (PUT)
-// Delete Booking Route: /api/bookings/:id (DELETE)
-
-
-
-
 const router = Router();
 
 const moduleRoutes = [

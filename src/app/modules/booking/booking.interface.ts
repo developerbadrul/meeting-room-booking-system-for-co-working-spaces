@@ -2,9 +2,9 @@ import { Document, Model, Types } from "mongoose";
 
 export interface TBooking extends Document {
     date: string;
-    slots: Types.ObjectId[]; // Array of ObjectIds referencing slots
-    room: Types.ObjectId; // ObjectId referencing a room
-    user: Types.ObjectId; // ObjectId referencing a user
+    slots: Types.ObjectId[]; 
+    room: Types.ObjectId; 
+    user: Types.ObjectId; 
     totalAmount: number;
     isConfirmed: "confirmed" | "unconfirmed";
     isDeleted: boolean;

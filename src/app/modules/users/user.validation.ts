@@ -1,5 +1,4 @@
 import { z } from "zod";
-import { USER_ROLE } from "./user.const";
 
 
 const userValidationSchema = z.object({
